@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block contents %}
+
+{{ error }}
+{% for director in directors %}
+
+<form method="POST" action=".">
+    {% csrf_token %}
+<figure class="snip1273">
+    <img src={{ director.photo2.url }}>
+    <figcaption>
+        <h3>{{ director.directorname }}</h3>
+        <p>{{ director.career2 | linebreaksbr }}</p>
+        <div class="form-group">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="director_1" id="director_1"
+                value="{{ director.directorname }}">
+            <label class="form-check-label" for="director_1">감독</label>
+        </div></div>
+    </figcaption>
+</figure>
+{% endfor %}
+<div class="butt">
+    <table class="tab">
+        <tr>
+            <td><input type="submit" class="btn btn-primary"></button></td>
+        </tr>
+    </table>
+</div>
+</form>
+
+<br>
+  <footer class="footer">
+    <div class="ftext">홍익대학교 컵퓨터공학과 졸업작품&nbsp;&nbsp;</div>
+  </footer>
+</body>
+
+
+{% endblock %}

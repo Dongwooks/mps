@@ -1,0 +1,52 @@
+<html>
+  <head>
+  <link rel="stylesheet" href="/static/movie.css">
+</head>
+
+
+<body>
+  {% load static %}
+  {% static 'section1.png' as 1rank %}
+  {% static 'hidesection1.png' as 1rank_hover %}
+  {% static 'section2.png' as 2rank %}
+  {% static 'hidesection3.png' as 2rank_hover %}
+
+    <header class="header">
+        <h1 class="logo">
+          <a href='/'>
+          <img src="{% static 'movie7.png' %}" alt="movie" /></a>
+        </h1>
+
+    </header>
+
+    <main class="main">
+      <!-- HERO -->
+      <div class="hero-section">
+        <div class="container">
+          <p class="intro-desc">MOVIE PREDICT SERVICE</p>
+          <table>
+            <th>
+              <a href='/main/section1'>
+                <input type="image" src="{% static 'section1.png' %}" alt="11" class="cta" id="cta1"
+                  onmouseover="this.src='{{ 1rank_hover }}'" onmouseleave="this.src='{{ 1rank }}'"></a>
+                  
+                  <br>
+            </th>
+            <th>
+              <a href='/main/section2'>
+                <img src="{% static 'section2.png' %}" alt="22" class="cta" id="cta2"
+                  onmouseover="this.src='{{ 2rank_hover }}'" onmouseleave="this.src='{{ 2rank }}'"></a>
+                  <br>
+            </th>
+          </table>
+      </div>
+      <!-- MAIN -->
+  </div>
+  </main>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="ftext">홍익대학교 컵퓨터공학과 졸업작품&nbsp;&nbsp;</div>
+  </footer>
+</body>
+
+</html>

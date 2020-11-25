@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block contents %}
+
+{% for movie in movies %}
+
+<form method="POST" action=".">
+    {% csrf_token %}
+<figure class="snip1273">
+    <img src={{ movie.photo3.url }}>
+    <figcaption>
+        <h3>{{ movie.moviename }}</h3>
+        <p>{{ movie.career3 | linebreaksbr }}</p>
+        <div class="form-group">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="moviename" id="moviename"
+                value="{{ movie.moviename }}">
+            <label class="form-check-label" for="moviename">영화</label>
+        </div></div>
+    </figcaption>
+</figure>
+{% endfor %}
+<div class="butt">
+    <table class="tab">
+        <tr>
+            <td><button type="submit" class="btn btn-primary">영화선택</button></td>
+        </tr>
+    </table>
+</div>
+</form>
+
+<br>
+  <footer class="footer">
+    <div class="ftext">홍익대학교 컵퓨터공학과 졸업작품&nbsp;&nbsp;</div>
+  </footer>
+</body>
+
+
+{% endblock %}

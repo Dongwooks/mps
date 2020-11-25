@@ -1,0 +1,70 @@
+<html>
+<head>
+  <head>
+    <link rel="stylesheet" href="/static/movie.css">
+  </head>
+
+<body>
+    {% load static %}
+    {% static 'movieselect.png' as 1rank %}
+    {% static 'hidemovie.png' as 1rank_hover %}
+    {% static 'actorselect.png' as 2rank %}
+    {% static 'hideactor.png' as 2rank_hover %}
+ 
+    <header class="header">
+        <h1 class="logo">
+          <a href='/'>
+          <img src="{% static 'movie7.png' %}" alt="movie" /></a>
+        </h1>
+    </header>
+
+    <main class="main">
+      <!-- HERO -->
+      <div class="hero-section">
+        <div class="container">
+                 <table class="table">
+	  <table>
+            <thead>
+ 		<th>영화선택</th>
+		<th>배우선택</th>
+            </thead> 
+            <tbody>
+                <th>
+                    <a href='/main/movie_list/'>
+                        <img src="{% static 'movieselect.png' %}" alt="11" class="cta" id="cta1"
+                        onmouseover="this.src='{{ 1rank_hover }}'" onmouseleave="this.src='{{ 1rank }}'">
+                    </a>
+                    
+                  </th>
+                  <th>
+                    <a href='/main/actor_list2/' onclick="alert('4명의 배우를 선택하세요'); ">
+                        <img src="{% static 'actorselect.png' %}" alt="11" class="cta" id="cta1"
+                        onmouseover="this.src='{{ 2rank_hover }}'" onmouseleave="this.src='{{ 2rank }}'">
+                    </a>
+                  </th>
+            </tbody>
+        </table>
+    </div>
+    <div class="container">
+      <table class="table">
+        <table>
+          <th>
+            {% if tag_result %}
+            <a>선택 영화: {{ tag_result }}</a>
+            {% endif %}
+          </th>
+        </table>
+</div>
+
+        </div>
+      </div>
+
+  </div>
+  </main>
+
+  <footer class="footer">
+    <div class="ftext">홍익대학교 컵퓨터공학과 졸업작품&nbsp;&nbsp;</div>
+  </footer>
+</body>
+
+</html>

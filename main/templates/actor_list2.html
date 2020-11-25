@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block contents %}
+
+{{ error }}
+{% for actor in actors %}
+
+<form method="POST" action=".">
+    {% csrf_token %}
+<figure class="snip1273">
+    <img src={{ actor.photo1.url }}>
+    <figcaption>
+        <h3>{{ actor.actorname }}</h3>
+        <p>{{ actor.career | linebreaksbr }}</p>
+        <div class="form-group">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="act1_1" id="act1_1"
+                value="{{ actor.actorname }}">
+            <label class="form-check-label" for="act1_1">배우1</label>
+        </div></div>
+        <div class="form-group">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="act2_1" id="act2_1"
+                value="{{ actor.actorname }}">
+            <label class="form-check-label" for="act2_1">배우2</label>
+        </div></div>
+        <div class="form-group">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="act3_1" id="act3_1"
+                value="{{ actor.actorname }}">
+            <label class="form-check-label" for="actr3_1">배우3</label>
+        </div></div>
+        <div class="form-group">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="act4_1" id="act4_1"
+                value="{{ actor.actorname }}">
+            <label class="form-check-label" for="act4_1">배우4</label>
+        </div></div>
+    </figcaption>
+</figure>
+{% endfor %}
+<div class="butt">
+    <table class="tab">
+        <tr>
+            <td><input type="submit"  href='/main/section1' class="btn btn-primary"></button></td>
+        </tr>
+    </table>
+</div>
+</form>
+</main>
+<br>
+  <footer class="footer">
+    <div class="ftext">홍익대학교 컵퓨터공학과 졸업작품&nbsp;&nbsp;</div>
+  </footer>
+</body>
+
+{% endblock %}

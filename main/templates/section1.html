@@ -1,0 +1,117 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/movie.css">
+  </head>
+<body>
+    {% load static %}
+    {% static 'directorselect.png' as 1rank %}
+    {% static 'hidedirector.png' as 1rank_hover %}
+    {% static 'actorselect.png' as 2rank %}
+    {% static 'hideactor.png' as 2rank_hover %}
+
+  <header class="header">
+	<div class="container2">
+        <h1 class="logo">
+          <a href='/'>
+          <img src="{% static 'movie7.png' %}" alt="movie" /></a>
+        </h1>
+      </div>
+    </header>
+
+    <main class="main">
+      <!-- HERO -->
+      <div class="hero-section">
+        <div class="container">
+                 <table class="table">
+                  <table>
+                    <tr>
+                    <th>감독선택</th>
+                    <th>배우선택</th>
+                    <td colspan="2"></td>
+                    </tr>
+                    <tr>
+                    <td rowspan="3"><a href='/main/director_list/'>
+                      <img src="{% static 'directorselect.png' %}" alt="11" class="cta" id="cta1"
+                      onmouseover="this.src='{{ 1rank_hover }}'" onmouseleave="this.src='{{ 1rank }}'"></a>
+                    </td>
+                    
+                    <td rowspan="3"><a href='/main/actor_list/' onclick="alert('4명의 배우를 선택하세요'); ">
+                      <img src="{% static 'actorselect.png' %}" alt="11" class="cta" id="cta1"
+                      onmouseover="this.src='{{ 2rank_hover }}'" onmouseleave="this.src='{{ 2rank }}'"></a>
+                    </td>
+                    {% if director_result %}
+                      <a>{{ director_result }}</a>
+                    {% endif %}
+
+                    <form method="POST" action=".">
+                      {% csrf_token %}
+                      <div class="form-group">
+                        <label for="genre_1"><td class="line"><h3>장르</h3></td></label>
+                        <td class="line"><select class="form-control" id="genre_1" name= "genre_1">
+                          <option value="액션">액션</option>
+                          <option value="어드벤처">어드벤처</option>
+                          <option value="코미디">코미디</option>
+                          <option value="범죄">범죄</option>
+                          <option value="드라마">드라마</option>
+                          <option value="가족">가족</option>
+                          <option value="판타지">판타지</option>
+                          <option value="사극">사극</option>
+                          <option value="공포(호러)">공포(호러)</option>
+                          <option value="미스터리">미스터리</option>
+                          <option value="멜로/로맨스">멜로/로맨스</option>
+                          <option value="SFr">SF</option>
+                          <option value="스릴러">스릴러</option>
+                          <option value="전쟁">전쟁</option>
+                        </select></td> 
+                      </div>
+                      </tr>
+                  <tr>
+                    <div class="form-group">	
+                    <label for="rating_1"><td class="line"><h3>관람 연령</h3></td></label>
+                    <td class="line"><select class="form-control" id="rating_1" name= "rating_1">
+                    <option value="전체관람가">전체관람가</option>
+                    <option value="12세이상관람가">12세이상관람가</option>
+                    <option value="15세이상관람가">15세이상관람가</option>
+                    <option value="청소년관람불가">청소년관람불가</option>
+                    </select></td>
+                  </div>
+                  </tr>
+                  <div class="form-group">
+                    <label for="dist_1"><td class="line"><h3>배급사</h3></td></label>
+                    <td class="line"><select class="form-control" id="dist_1" name= "dist_1">
+                    <option value="이십세기폭스코리아">이십세기폭스코리아</option>
+                    <option value="쇼박스">쇼박스</option>
+                    <option value="씨제이이앤엠">씨제이이앤엠</option>
+                    <option value="롯데엔터테인먼트">롯데엔터테인먼트</option>
+                    <option value="CGV아트하우스">CGV아트하우스</option>
+                    <option value="넥스트엔터테인먼트월드(NEW)">넥스트엔터테인먼트월드(NEW)</option>
+                    <option value="메가박스중앙플러스엠">메가박스중앙플러스엠</option>
+                    <option value="워너브러더스 코리아">워너브러더스 코리아</option>
+                    </select>	</td>
+                  </div>
+                  </tr>
+                  </table>
+                  <br>
+                </form>
+    </div>
+</div>  
+ <div class="container">
+  <table class="table">
+    <table>
+      <th>
+        {% if tag_result %}
+        <a>선택 영화: {{ tag_result }}</a>
+        {% endif %}
+      </th>
+    </table>
+</div>
+</div>
+</div>
+</main>
+<br>
+  <footer class="footer">
+    <div class="ftext">홍익대학교 컵퓨터공학과 졸업작품&nbsp;&nbsp;</div>
+  </footer>
+</body>
+
+</html>
